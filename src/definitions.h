@@ -20,7 +20,7 @@ unsigned int ntfyLowerThreshold = 21, ntfyUpperThreshold = 93;
 unsigned long tkeepNtfy = 2000, ntfyTime = 12 * 60 * 1000; // notify every 30 minutes on crossing threshold
 // unsigned long tkeepUS = 500, tkeepUSpub = 1500, tkeepHum = 4000, tBuzz = 0;
 unsigned long tgetLight = 5000, tkeepConnect=0;//, tkeepDoor=1000, tkeepPIR=1500;
-unsigned int rssiTime = 10000, tempTime = 120000;//, lightTime = 10000, humTime = 10000, lightinty = 0;
+unsigned int rssiTime = 60000, tempTime = 120000;//, lightTime = 10000, humTime = 10000, lightinty = 0;
 unsigned int connectTime = 5000, chkTempTime = 1000;//, dhtTime = 3000, getLight = 5000;
 // unsigned int doorTime = 1000, pirTime = 1000, usTime = 2000, uspubTime = 10000, buzzTime = 5000;
 
@@ -46,7 +46,7 @@ bool connection = LOW, firstTime = HIGH, smart = HIGH, waterLevel = LOW, motorSt
 char SERVER[16] = "io.adafruit.com";
 uint8_t wifiReconnectAttemptCount=0;
 // const char* firmwareURL = "https://github.com/pankajpatil001/overhead-tank-ntfy/raw/refs/heads/master/firmwares/nodemcuv2.bin";
-const char* firmwareURL = "https://raw.githubusercontent.com/pankajpatil001/overhead-tank-ntfy/master/firmwares/nodemcuv2.bin";
+const char* firmwareURL = "https://raw.githubusercontent.com/pankajpatil001/motor-controller-ntfy/master/firmwares/nodemcuv2.bin";
 
 bool wifiConnected = LOW;
 // Parameters from initial setup
