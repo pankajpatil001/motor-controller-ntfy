@@ -43,20 +43,21 @@ void connectSubscribe(){
         // ... and resubscribe
         // Serial.println(ON_TIME);
         // Serial.println(OFF_TIME);
-        // char onTopic[MQTT_USERNAME_SIZE + FEED_SIZE + 2]; // +2 FOR / AND \0
-        // strcpy(onTopic, MQTT_USERNAME);
-        // strcat(onTopic, "/");
-        // strcat(onTopic, onTimeFeed);
+        char motorSwitchTopic[MQTT_USERNAME_SIZE + MOTOR_FEED_SIZE + 2]; // +2 FOR / AND \0
+        strcpy(motorSwitchTopic, MQTT_USERNAME);
+        strcat(motorSwitchTopic, "/");
+        strcat(motorSwitchTopic, MOTOR);
+        Serial.print("Topic name: ");
+        Serial.println(motorSwitchTopic);
+        client.subscribe(motorSwitchTopic, 1);
+        
+        // char mainTankTopic[MQTT_USERNAME_SIZE + MAINTANK_FEED_SIZE + 2]; // +2 FOR / AND \0
+        // strcpy(mainTankTopic, MQTT_USERNAME);
+        // strcat(mainTankTopic, "/");
+        // strcat(mainTankTopic, MAINTANK);
         // Serial.print("Topic name: ");
-        // Serial.println(onTopic);
-        // char offTopic[MQTT_USERNAME_SIZE + FEED_SIZE + 2]; // +2 FOR / AND \0
-        // strcpy(offTopic, MQTT_USERNAME);
-        // strcat(offTopic, "/");
-        // strcat(offTopic, offTimeFeed);
-        // Serial.print("Topic name: ");
-        // Serial.println(offTopic);
-        // client.subscribe(onTopic, 1);
-        // client.subscribe(offTopic, 1);
+        // Serial.println(mainTankTopic);
+        // client.subscribe(mainTankTopic, 1);
         // client.subscribe("Umeshp99/feeds/on-time", 1);
         // client.subscribe("Umeshp99/feeds/off-time", 1);
         // client.subscribe("patilect/feeds/+", 1);

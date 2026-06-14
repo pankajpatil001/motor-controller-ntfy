@@ -21,8 +21,9 @@
 // #define SERVER            "io.adafruit.com"
 #define SERVERPORT        1883
 #define MQTT_USERNAME     "patilect"
+#define MQTT_USERNAME_SIZE 8
 #define MQTT_KEY          "d288fe61159d4fb084882b7de8a13ca6"
-#define deviceName        "HydroponicTimer" //Specify the name to be seen on network
+#define deviceName        "MotorController" //Specify the name to be seen on network
 
 #define PREAMBLE          "patilect/"
 #define MESSAGES          "feeds/messages" //for specific messages related to batches
@@ -38,16 +39,18 @@
 #define TEMP_PARAM_SIZE   32
 #define TEST_PARAM_ADDR   0
 
-#define NTFY_TOPIC        "patilect-overhead-tank-2025"
-#define STARTUP_NTFN      "Overhead tank sensor is starting up..."
+#define NTFY_TOPIC        "patilect-motor-controller-2026"
+#define STARTUP_NTFN      "Motor Controller is starting up..."
 // #define LUMINOSITY        "sensor/luminosity"
 // #define FAN               "fan"
 // // #define BROODER           "device/brooder"
-// #define MOTOR             "device/motor"
+#define MOTOR             "feeds/motor"
+#define MOTOR_FEED_SIZE  12
 // #define HUMIDITY          "feeds/humidity"
 // #define COOLER            "feeds/cooler"
 // #define LIGHT1            "feeds/light1"
 #define MAINTANK          "feeds/maintank"
+#define MAINTANK_FEED_SIZE 14
 // #define PORCHLIGHT        "device/porchlight"
 // #define ALARM             "device/alarm"
 // #define TEMP              "feeds/temperature"
@@ -55,9 +58,11 @@
 // #define GETLATEST         "/get"
 
 
-#define LED                 2
-#define echoPin             16
-#define trigPin             4
+#define LED                16
+#define motorRelay         14
+#define motorSwitch        2
+// #define echoPin             16
+// #define trigPin             4
 // #define waterSensorTrigger  15
 // #define waterSensor         5
 // #define Fan          13

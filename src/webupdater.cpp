@@ -1,9 +1,9 @@
 #include "webupdater.h"
 
 String setUpForm() {
-  String page = "<!DOCTYPE html><html><head><title>Patilect Overhead Tank Config</title>";
+  String page = "<!DOCTYPE html><html><head><title>Patilect Motor Controller Config</title>";
   page += "<style>body{font-family:sans-serif;max-width:400px;margin:auto;padding:1em;}input{width:100%;margin-bottom:1em;padding:0.5em;}</style>";
-  page += "<div style='text-align: center;'><h1>Welcome to Patilect's</h1><br/><h2>Overhead Tank Config Page</h2></div>";
+  page += "<div style='text-align: center;'><h1>Welcome to Patilect's</h1><br/><h2>Motor Controller Config Page</h2></div>";
   page += "</head><body><h2>Configure Device</h2><form method='POST' action='/save-device-setup/'>"; // + String(deviceUUID) + "'>";
   // page += "<label>MQTT Host / IP:</label><input name='rpiServer' value='" + String(rpiServer) + "'>"; // "' required>";
   // page += "<label>Device Name:</label><input name='deviceName' value='" + String(deviceName) + "'>"; // "' required>";

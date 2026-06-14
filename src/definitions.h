@@ -6,7 +6,6 @@
 #include "callback.h"
 #include "publish.h"
 #include "connectSubscribe.h"
-#include "waterlevel.h"
 #include "ntfy.h"
 #include "defines.h"
 
@@ -21,7 +20,7 @@ unsigned int ntfyLowerThreshold = 21, ntfyUpperThreshold = 93;
 unsigned long tkeepNtfy = 2000, ntfyTime = 12 * 60 * 1000; // notify every 30 minutes on crossing threshold
 // unsigned long tkeepUS = 500, tkeepUSpub = 1500, tkeepHum = 4000, tBuzz = 0;
 unsigned long tgetLight = 5000, tkeepConnect=0;//, tkeepDoor=1000, tkeepPIR=1500;
-unsigned int rssiTime = 30000, tempTime = 120000;//, lightTime = 10000, humTime = 10000, lightinty = 0;
+unsigned int rssiTime = 10000, tempTime = 120000;//, lightTime = 10000, humTime = 10000, lightinty = 0;
 unsigned int connectTime = 5000, chkTempTime = 1000;//, dhtTime = 3000, getLight = 5000;
 // unsigned int doorTime = 1000, pirTime = 1000, usTime = 2000, uspubTime = 10000, buzzTime = 5000;
 
@@ -42,7 +41,7 @@ float temp = 0;//, hum = 0, prevTemp = 0, prevHum = 0;
 // //-----------------------------------------------------------------------------------------------
 
 // //--------------------------------------------------------------------------------
-bool connection = LOW, firstTime = HIGH, smart = HIGH, waterLevel = LOW, valveStatus = LOW, coolerState = LOW;//, doorState = LOW, lightStatus = LOW;
+bool connection = LOW, firstTime = HIGH, smart = HIGH, waterLevel = LOW, motorStatus = LOW, coolerState = LOW;//, doorState = LOW, lightStatus = LOW;
 //-----------------------------------------------------------------------------------------------
 char SERVER[16] = "io.adafruit.com";
 uint8_t wifiReconnectAttemptCount=0;
@@ -62,7 +61,7 @@ const char* loginIndex =
         "<tr>"
             "<td colspan=2>"
                 "<center><font size=4><b>Patilect Smart Solutions</b></font></center>"
-                "<center><font size=3><b>Overhead Tank Water Level Monitor Device</b></font></center>"
+                "<center><font size=3><b>Motor Controller Device</b></font></center>"
                 "<br>"
             "</td>"
             "<br>"

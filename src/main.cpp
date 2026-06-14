@@ -2,8 +2,16 @@
 
 void setup() {
   pinMode(LED, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(motorRelay, OUTPUT);
+  pinMode(motorSwitch, INPUT);
+
+  digitalWrite(motorRelay, LOW); // Ensure the motor relay is off at startup
+  for (int i = 0; i < 6; i++) {
+    digitalWrite(LED, HIGH); // Turn on the LED to indicate startup
+    delay(200);
+    digitalWrite(LED, LOW); // Turn off the LED to indicate startup
+    delay(200);
+  }
   
   if(serial) Serial.begin(115200);      
   delay(10);
@@ -27,7 +35,6 @@ void loop() {
   checkConnection();
   connectSubscribe();
   publishFeeds();
-  getMainTankWaterLevel();
 
   client.loop();  
   yield();
