@@ -1,5 +1,18 @@
 #include "publish.h"
 
+// Publish the current motor state to the MQTT feed so the Adafruit IO
+// dashboard stays in sync when the motor is toggled locally (button).
+// Published retained so the feed reflects the latest state to new clients.
+void publishMotorState(){
+  if (!client.connected()) return;
+  const char* state = motorStatus ? "ON" : "OFF";
+  client.publish(PREAMBLE MOTOR, state, true);
+  if (serial) {
+    Serial.print("Published motor state to MQTT: ");
+    Serial.println(state);
+  }
+}
+
 void publishFeeds(){
     
   //------------------------RSSI-----------------------------

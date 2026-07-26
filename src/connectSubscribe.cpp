@@ -77,14 +77,14 @@ void connectSubscribe(){
 }
 
 void checkConnection(){
-    //----Connection LED-----
+    //----Connection state tracking-----
+    // NOTE: The LED (GPIO16) is dedicated to motor status, so the connection
+    // indicator must NOT drive it here (that turned the LED ON with the motor OFF).
   if(client.connected() && connection == LOW) {
     wifiReconnectAttemptCount=0;
-    digitalWrite(LED, LOW); //Connected
     connection = HIGH;
   }
   else if(!client.connected() && connection == HIGH){
-    digitalWrite(LED, HIGH); //Not Connected
     connection = LOW;
   }
   //-----------------------

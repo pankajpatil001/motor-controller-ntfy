@@ -6,6 +6,7 @@
 #include "callback.h"
 #include "publish.h"
 #include "connectSubscribe.h"
+#include "controlMotor.h"
 #include "ntfy.h"
 #include "defines.h"
 
@@ -23,6 +24,7 @@ unsigned long tgetLight = 5000, tkeepConnect=0;//, tkeepDoor=1000, tkeepPIR=1500
 unsigned int rssiTime = 60000, tempTime = 120000;//, lightTime = 10000, humTime = 10000, lightinty = 0;
 unsigned int connectTime = 5000, chkTempTime = 1000;//, dhtTime = 3000, getLight = 5000;
 // unsigned int doorTime = 1000, pirTime = 1000, usTime = 2000, uspubTime = 10000, buzzTime = 5000;
+// bool motorStatus = LOW;
 
 uint8_t ti = 0;
 int val = 0;

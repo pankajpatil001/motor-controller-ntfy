@@ -22,16 +22,28 @@ void callback(char* topic, byte * data, unsigned int length) {
     }
     if(serial) Serial.println();
     if(message.equalsIgnoreCase("ON")) {
-      Serial.println("Turning motor ON...");
-      digitalWrite(motorRelay, HIGH);
-      motorStatus = HIGH;
-      sendNtfyMessage(NTFY_TOPIC, "Motor turned ON!");
+      if (motorStatus == HIGH) {
+        // Already ON — likely the echo of our own publish (button toggle). Ignore.
+        Serial.println("Motor already ON, ignoring MQTT message.");
+      } else {
+        Serial.println("Turning motor ON...");
+        digitalWrite(motorRelay, HIGH);
+        digitalWrite(LED, HIGH);
+        motorStatus = HIGH;
+        sendNtfyMessage(NTFY_TOPIC, "Motor turned ON!");
+      }
     }
     else if(message.equalsIgnoreCase("OFF")) {
-      Serial.println("Turning motor OFF...");
-      digitalWrite(motorRelay, LOW);
-      motorStatus = LOW;
-      sendNtfyMessage(NTFY_TOPIC, "Motor turned OFF!");
+      if (motorStatus == LOW) {
+        // Already OFF — likely the echo of our own publish (button toggle). Ignore.
+        Serial.println("Motor already OFF, ignoring MQTT message.");
+      } else {
+        Serial.println("Turning motor OFF...");
+        digitalWrite(motorRelay, LOW);
+        digitalWrite(LED, LOW);
+        motorStatus = LOW;
+        sendNtfyMessage(NTFY_TOPIC, "Motor turned OFF!");
+      }
     }
   }
 }

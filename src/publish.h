@@ -13,9 +13,11 @@ extern unsigned int rssiTime, mainTankLevelTime, mainTankWaterLevel;
 extern PubSubClient client;
 extern char valueStr[100];
 extern bool serial;
+extern bool motorStatus;
 extern unsigned int ntfyLowerThreshold, ntfyUpperThreshold;
 
 void publishFeeds();
+void publishMotorState();
 void sendNtfyMessage(const String& topic, const String& message);
 
 #endif

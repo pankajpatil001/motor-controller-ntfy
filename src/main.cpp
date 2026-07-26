@@ -3,7 +3,7 @@
 void setup() {
   pinMode(LED, OUTPUT);
   pinMode(motorRelay, OUTPUT);
-  pinMode(motorSwitch, INPUT);
+  pinMode(motorSwitch, INPUT_PULLUP);
 
   digitalWrite(motorRelay, LOW); // Ensure the motor relay is off at startup
   for (int i = 0; i < 6; i++) {
@@ -35,6 +35,7 @@ void loop() {
   checkConnection();
   connectSubscribe();
   publishFeeds();
+  checkMotorSwitch();
 
   client.loop();  
   yield();
